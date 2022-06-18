@@ -1,57 +1,47 @@
+#include<iostream>
+#include<unordered_map>
+using namespace std;
 class Solution {
 public:
     string minWindow(string s, string t) {
-        if(s.size() < t.size()){
-            return "";
+        string res = "";                // 结果
+        unordered_map<char, int> sMap;  // 存放窗口中的符合条件的字符以及字符个数
+        unordered_map<char, int> tMap;  // 记录t中出现的字符以及字符个数
+        int min = INT32_MAX;            // 最小值
+        if (s.size() < t.size()) {
+            return res;
         }
-        int slowIndex = 0;
-        int fastIndex = 0;
-        int min = INT32_MAX;    // 最小子串的大小
-        string ret = "";
-        bool flag = false;      // 表示最小子串中没有包含全部 t子串 的字符
-        unordered_map<char,int> tMap;   // 记录t中个字符出现的个数
-        unordered_map<char,int> sMap;
-        for (int i = 0; i < t.size(); i++){
-            tMap[t[i]]++;
+        for (int i = 0; i < t.size(); i++) {
+            tMap[t[i]]++;   
         }
-        for (; fastIndex < s.size(); fastIndex++){
-            if(tMap.find(s[fastIndex]) != tMap.end()){
-                sMap[s[fastIndex]]++;
-                //cout<<"s[fastIndex]: "<<s[fastIndex]<<"  tMap[s[fastIndex]]: "<<tMap[s[fastIndex]]<<endl;
+        for (int leftIndex = 0, rightIndex = 0; rightIndex < s.size(); rightIndex++) {
+            if (tMap.find(s[rightIndex]) != tMap.end()) { // 窗口中符合条件的入sMap
+                sMap[s[rightIndex]]++;
             }
-            
-            while(getStr(sMap, tMap)){   // 如果找到最小子串，则慢指针往前移动，缩小窗口
-                //cout<<"进来啦"<<endl;
-                if(min > (fastIndex - slowIndex + 1)){
-                    min = fastIndex - slowIndex + 1;
-                    //cout<<"min: "<<min<<endl;
-                    ret = s.substr(slowIndex, min);
-                    //cout<<"min: "<<min<<" ret: "<<ret<<endl;
+            while (getStr(sMap, tMap)) { // 符合条件的则缩小窗口
+                if (min > (rightIndex - leftIndex + 1)) { // 是否改变结果
+                    min = rightIndex - leftIndex + 1;
+                    res = s.substr(leftIndex, min);
                 }
-                
-                if(tMap.find(s[slowIndex]) != tMap.end()){
-                    sMap[s[slowIndex]]--;
-                }  
-                slowIndex++; 
+                if (tMap.find(s[leftIndex]) != tMap.end()) { // 窗口缩小
+                    sMap[s[leftIndex]]--;
+                }
+                leftIndex++;
             }
         }
-        if(min == INT32_MAX){
+        if (min == INT32_MAX) {
             return "";
         }
-        return ret;
+        return res;
     }
 
     // 找到满足题目条件的最小子串
     bool getStr(unordered_map<char,int> &sMap, unordered_map<char,int> &tMap){
-        for(auto it = tMap.begin(); it != tMap.end(); it++){
-            //cout<<it->second<<" ";
-            if(sMap[it->first] < it->second){
+        for (auto it = tMap.begin(); it != tMap.end(); it++) { 
+            if (sMap[it->first] < it->second) { // 比较相同字符的个数是否大于t的，不大于则不符合
                 return false;
             }
-            
         }
-        //cout<<endl;
-        // cout<<"flag: "<<flag<<endl;
         return true;
     }
 };
