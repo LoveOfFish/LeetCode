@@ -5,7 +5,7 @@
 | 34. 在排序数组中查找元素的第一个和最后一个位置 | https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/ | 数组、二分查找 | 2022/6/5 | 704        | y              |                                                              |
 | 69. x 的平方根                                 | https://leetcode.cn/problems/sqrtx/ | 数组、二分查找 | 2022/6/5 | 704        | n              |                                                              |
 | 367. 有效的完全平方数                          |                                                              | 数组、二分查找 |          | 704        |                |                                                              |
-| 27. 移除元素                                   | https://leetcode.cn/problems/remove-element/ | 数组、双指针   | 2022/6/10 |            | y              | 快慢指针                                                     |
+| 27. 移除元素                                   | https://leetcode.cn/problems/remove-element/ | 数组、双指针   | 2022/6/10 |            | y              | 快慢指针，  快指针：寻找新数组的元素 ，新数组就是不含有目标元素的数组 慢指针：指向更新 新数组下标的位置   |
 | 26. 删除有序数组中的重复项                     | https://leetcode.cn/problems/remove-duplicates-from-sorted-array/ | 数组、双指针   | 2022/6/10 | 27         | y              | 快慢指针                                                     |
 | 283. 移动零                                    | https://leetcode.cn/problems/move-zeroes/ | 数组、双指针   | 2022/6/10 | 27         | y              | 快慢指针                                                     |
 | 844. 比较含退格的字符串                        | https://leetcode.cn/problems/backspace-string-compare/ | 字符串、双指针 | 2022/6/10 | 27         | y              | 快慢指针                                                     |
@@ -13,13 +13,13 @@
 | 209. 长度最小的子数组                          | https://leetcode.cn/problems/minimum-size-subarray-sum/ | 数组、双指针 | 2022/6/10 |            | y | 滑动窗口，要找到窗口右移和窗口收缩的条件 |
 | 904. 水果成篮 |       https://leetcode.cn/problems/fruit-into-baskets/       |  数组、双指针  | 2022/6/11 |    209     |       n        |                           滑动窗口                           |
 |                76. 最小覆盖子串                |    https://leetcode.cn/problems/minimum-window-substring/    |  数组、双指针  | 2022/6/11 |    209     | n | 滑动窗口 |
+| 59. 螺旋矩阵 II | https://leetcode.cn/problems/spiral-matrix-ii/ | 数组、模拟 | 2022/6/19 |            | n | |
+| 54. 螺旋矩阵 | https://leetcode.cn/problems/spiral-matrix/ | 数组、模拟 | 2022/6/19 | 59 | n | |
+| 剑指 Offer 29. 顺时针打印矩阵 | https://leetcode.cn/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/ | 数组、模拟 | 2022/6/19 | 54 | n | |
 |                                                |                                                              |                |           |            |                | |
-|                                                |                                                              |                |           |            |                | |
-|                                                |                                                              |                |           |            |                | |
-|                                                |                                                              |                |           |            |                | |
-|                                                |                                                              |                |           |            |                | |
-|                                                |                                                              |                |           |            |                | |
-|                                                |                                                              |                |           |            |                | |
+| 242. 有效的字母异位词 | https://leetcode.cn/problems/valid-anagram/ | 数组、哈希 | 2022/6/19 |  | y | |
+| 383. 赎金信 | https://leetcode.cn/problems/ransom-note/ | 数组、哈希 | 2022/6/19 | 242 | y | |
+| 49. 字母异位词分组] | https://leetcode.cn/problems/group-anagrams/ | 数组、哈希 | 2022/6/19 | 242 |                | |
 |                                                |                                                              |                |           |            |                | |
 |                                                |                                                              |                |           |            |                | |
 |                                                |                                                              |                |           |            |                | |
